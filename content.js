@@ -199,9 +199,19 @@ window.CONTENT = {
       gallery: {
         title: "Photography",
         intro: "",
-        // add photos as { src: "img/photos/moon-1.jpg", caption: "Waxing gibbous, Oct 2026" }
-        // order here is the order on the page. caption is optional.
-        photos: [],
+        // add photos as { src: "img/photos/name.jpg", alt: "what it shows", caption: "optional line under the photo" }
+        // order here is the order on the page
+        photos: [
+          { src: "img/photos/storm-clouds.jpg", alt: "Storm clouds over the coast at dusk" },
+          { src: "img/photos/peacock.jpg", alt: "Peacock" },
+          { src: "img/photos/daisy.jpg", alt: "White and violet daisy" },
+          { src: "img/photos/ball-python.jpg", alt: "Ball python" },
+          { src: "img/photos/agapanthus.jpg", alt: "Agapanthus" },
+          { src: "img/photos/croton.jpg", alt: "Croton leaves" },
+          { src: "img/photos/begonia.jpg", alt: "Begonia" },
+          { src: "img/photos/grass-sunset.jpg", alt: "Grass against the sunset" },
+          { src: "img/photos/dome.jpg", alt: "Painted dome" }
+        ],
         // shown only while photos is empty, so the page has a shape before the pictures arrive
         placeholders: ["Moon", "Flowers", "Lightning", "Moon", "Night sky", "Flowers"]
       }

@@ -232,7 +232,7 @@ body.inlog .tfade,body.inlog .bfade{opacity:1}
   function gallery(G){
     const ph=(G.photos||[]), empty=!ph.length;
     const frames=empty?(G.placeholders||[]).map(t=>`<figure class="ph empty"><div class="hold"><span>${esc(t)}</span></div></figure>`).join('')
-      :ph.map(p=>`<figure class="ph"><img loading="lazy" src="${esc(p.src)}" alt="${esc(p.caption||'')}" onerror="this.parentNode.remove()">${p.caption?'<figcaption>'+esc(p.caption)+'</figcaption>':''}</figure>`).join('');
+      :ph.map(p=>`<figure class="ph"><img loading="lazy" src="${esc(p.src)}" alt="${esc(p.alt||p.caption||'')}" onerror="this.parentNode.remove()">${p.caption?'<figcaption>'+esc(p.caption)+'</figcaption>':''}</figure>`).join('');
     return `<section class="galsec" data-shape="dust"><h2>${esc(G.title||'Photography')}</h2>${G.intro?'<div class="gintro">'+paras(G.intro)+'</div>':''}`+
       `<div class="gal">${frames}</div></section>`;
   }
@@ -630,7 +630,7 @@ document.addEventListener('pointerover',e=>{ const tl=e.target.closest&&e.target
 document.addEventListener('focusin',e=>{ const tl=e.target.closest&&e.target.closest('.tile'); hoverShape=tl?(tl.dataset.preview||null):null; });
 // photography: click a frame to see it large, click again or press escape to close
 document.addEventListener('click',e=>{ const f=e.target.closest('.gal .ph'); const lb=document.getElementById('lb'); if(!lb) return;
-  if(f){ const im=f.querySelector('img'); if(!im) return; lb.querySelector('img').src=im.src; lb.querySelector('figcaption').textContent=im.alt||''; lb.classList.add('on'); return; }
+  if(f){ const im=f.querySelector('img'); if(!im) return; lb.querySelector('img').src=im.src; const fc=f.querySelector('figcaption'); lb.querySelector('img').alt=im.alt; lb.querySelector('figcaption').textContent=fc?fc.textContent:''; lb.classList.add('on'); return; }
   if(e.target.closest('#lb')) lb.classList.remove('on'); });
 addEventListener('keydown',e=>{ if(e.key==='Escape'){ const lb=document.getElementById('lb'); if(lb) lb.classList.remove('on'); } });
 // worlds: accent rgb + readout. routing by hash so a recruiter can be sent straight to #rf
