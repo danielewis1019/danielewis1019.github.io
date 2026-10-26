@@ -1,17 +1,6 @@
-// Everything a visitor reads lives in this file. Edit text here; the page rebuilds itself from it.
-// Rules of thumb:
-//   - text can be one string or a list of strings; each string becomes its own paragraph
-//   - write text inside "double quotes" so apostrophes like don't are safe
-//   - photos go in the img folder; reference them as "img/whatever.jpg". A missing photo just hides itself
-//   - shape picks what the particles build while that entry is on the center line:
-//       earth, leo, geo, moon, rf, lotus (full-size Nyx), mini (half-scale Nyx), strip (bimetal finger),
-//       spring (two-way nitinol spring), dust (loose drifting particles)
-//   - (photography lives in the last world below; drop photos in img/photos and list them there)
-//   - control (optional): "mast" raises the LVSAT mast with scroll, "sweep" slides the RF antenna with scroll
-//   - sub (optional): one italic line under an entry's title
-//   - to add an entry, copy one { ... } block, paste it where you want it, and change the words
-//   - to remove one, delete its { ... } block and the comma after it
-// Keep Lockheed proprietary information out of this file. Public program information and your own role only.
+// site content. index.html renders everything from this object.
+// text: string or array of strings (one paragraph each). sub: italic line under a title.
+// shape: earth leo geo moon rf lotus mini strip spring dust. control: mast | sweep.
 
 window.CONTENT = {
 
@@ -36,10 +25,10 @@ window.CONTENT = {
       logs: [
         {
           title: "Programs Supported",
-          intro: "Materials and Processes, Solar Array Manufacturing, Lockheed Martin Space. 2024 to present.",
+          intro: "Materials and Processes, Solar Array Manufacturing Center, Lockheed Martin Space. July 2025 to present.",
           entries: [
             {
-              date: "2024 to now", title: "Tranche 1 / Tranche 2, LEO", shape: "leo",
+              date: "2025 to now", title: "Tranche 1 / Tranche 2, LEO", shape: "leo",
               sub: "Space Development Agency constellation in low Earth orbit.",
               text: [
                 "Materials verification for the solar arrays: substrate structural integrity, bonding surfaces, dielectric materials, adhesives.",
@@ -55,7 +44,7 @@ window.CONTENT = {
                 "Qualifying the automated robots for solar cell bonding and welding.",
                 "Materials verification across the full array: composite substrates, Kapton dielectric film, adhesives, yokes/booms, fasteners, harness wiring, staking compounds.",
                 "Designed experiments on bonding process changes. Root-cause investigations on flight hardware.",
-                "Built a Python image-processing tool that measures bonded area between cell and substrate. It catches voids the previous method missed and cut turnaround from weeks to days."
+                "Built a Python image-processing tool that measures bonded area between cell and substrate. It catches voids the previous method missed, cut turnaround from three weeks to one day, and now certifies production lots."
               ],
               photos: []
             },
@@ -76,7 +65,7 @@ window.CONTENT = {
     // ---------------------------------------------------------------- materials
     {
       id: "materials", nav: "Materials", scene: "materials", accent: "180,140,255",
-      tile: { kicker: "materials", title: "Nyx", photo: "", shape: "lotus" },
+      tile: { kicker: "Materials", title: "Nyx", line: "A flower-shaped radiator that opens to shed heat in lunar day and seals shut through the lunar night.", dates: "2026 to now", shape: "lotus" },
       slider: true,   // shows the lunar temperature slider that drives the Nyx shapes
       logs: [
         {
@@ -118,7 +107,11 @@ window.CONTENT = {
             },
             {
               date: "Sep 2026", title: "Bimetal Finger Tests", shape: "strip",
-              text: "I bonded zinc to steel and cut 1 x 6 inch samples, varying only sheet thickness, then heated them toward 120°C, recording deflection against a ruler and surface temperature with an infrared thermometer every 20 seconds. They deflected, but not far enough to swing a petal. Zinc also disqualifies itself for flight: it sublimates in vacuum, the vapor redeposits as a conductive film that can short electronics, and it grows whiskers. NASA's parts program prohibits zinc plating on space electronics for exactly these reasons, the same kind of material screening I do every day at Lockheed.",
+              text: [
+                "I bonded zinc, aluminum, and steel into 14 bimetal strips, each 1 x 6 inches with layer thickness as the only variable. Each one was heated toward 120\u00b0C, with deflection read off a ruler and surface temperature off an infrared thermometer every 20 seconds.",
+                "I checked every strip against Timoshenko\u2019s bimetal theory: 12 of 14 bent within a factor of two of prediction, and the most responsive used 0.1 to 0.2 mm steel. Peak deflection was 10.7 mm at 120\u00b0C. A two-way nitinol spring gave 31 mm of stroke at 80\u00b0C, so the petals run on nitinol.",
+                "Zinc also disqualifies itself for flight: it sublimates in vacuum, the vapor redeposits as a conductive film that can short electronics, and it grows whiskers. NASA\u2019s parts program prohibits zinc plating on space electronics for exactly these reasons, the same kind of material screening I do every day at Lockheed."
+              ],
               photos: []
             },
             {
@@ -135,7 +128,7 @@ window.CONTENT = {
               date: "Oct 2026", title: "Full-Size Prototype, In Build", shape: "lotus",
               text: [
                 "Eight petals, one nitinol spring each. Four inner petals form the walls of the closed bud. Four outer petals close over the seams and meet as the roof, with a foam gasket along each seam. Each petal is counterweighted to balance on its hinge, the way flight hardware is offloaded for ground tests, so the springs only have to overcome friction.",
-                "Open, every petal lies flat with its high-emissivity face up. Closed, the bud encloses a payload whose temperature I will log through thermal cycles that mimic a lunar day and night and other orbits. Inner petals are printed. Outer petals are next."
+                "Open, every petal lies flat with its high-emissivity face up. Closed, the bud encloses a payload whose temperature I will log through thermal cycles that mimic a lunar day and night and other orbits. All eight petals are printed. The base and drive hardware are next."
               ],
               photos: []
             },
@@ -152,7 +145,7 @@ window.CONTENT = {
     // ---------------------------------------------------------------- RF
     {
       id: "rf", nav: "RF", scene: "rf", accent: "255,210,63",
-      tile: { kicker: "radio frequency", title: "RF Lab", photo: "", shape: "rf" },
+      tile: { kicker: "Radio frequency", title: "RF Lab", line: "Two-antenna receivers built to find where a radio signal comes from.", dates: "2025 to now", shape: "rf" },
       logs: [
         {
           title: "RF Lab",
@@ -160,7 +153,7 @@ window.CONTENT = {
           entries: [
             {
               date: "Feb 2025", title: "Learning the Basics", shape: "rf",
-              text: "Started with a HackRF One software-defined radio: spectrum analysis, waterfall displays, reading raw IQ samples, and comparing antennas, including a 2.4 GHz patch, a GPS antenna, and a telescopic whip.",
+              text: "Started with a HackRF One software-defined radio. I wrote a spectrum analyzer on a 2048-point FFT with a classifier that labels more than 60 FCC band segments, then worked through waterfall displays, raw IQ samples, and antenna comparisons: a 2.4 GHz patch, a GPS antenna, and a telescopic whip.",
               photos: []
             },
             {
@@ -170,12 +163,12 @@ window.CONTENT = {
             },
             {
               date: "Aug 2026", title: "HALOSCAN: Direction Finding", shape: "rf",
-              text: "Two Vivaldi antennas feed a two-channel bladeRF. A signal reaches one antenna slightly before the other, and that phase difference gives its direction. HALOSCAN detects emitters and follows them as the rig pans. The open problem is holding a stable bearing on intermittent signals.",
+              text: "Two Vivaldi antennas feed a two-channel bladeRF 2.0. A signal reaches one antenna slightly before the other, and that phase difference should give its direction. Real-time bearings never held steady. I traced it to phase ambiguity: with the antennas spaced wide, one phase reading fits several angles. That diagnosis is what the rail was built to work around.",
               photos: []
             },
             {
               date: "Aug 2026", title: "The Rail", shape: "rf",
-              text: "Two Vivaldi boards hang from a pair of wooden rails. One is fixed. The other slides, adjustable from about half a centimeter to two feet apart.",
+              text: "Two Vivaldi boards hang from a pair of wooden rails. One is fixed. The other slides, adjustable from 0.5 to 60 cm apart.",
               photos: []
             },
             {
@@ -202,15 +195,15 @@ window.CONTENT = {
         // add photos as { src: "img/photos/name.jpg", alt: "what it shows", caption: "optional line under the photo" }
         // order here is the order on the page
         photos: [
-          { src: "img/photos/storm-clouds.jpg", alt: "Storm clouds over the coast at dusk" },
-          { src: "img/photos/peacock.jpg", alt: "Peacock" },
-          { src: "img/photos/daisy.jpg", alt: "White and violet daisy" },
-          { src: "img/photos/ball-python.jpg", alt: "Ball python" },
-          { src: "img/photos/agapanthus.jpg", alt: "Agapanthus" },
-          { src: "img/photos/croton.jpg", alt: "Croton leaves" },
-          { src: "img/photos/begonia.jpg", alt: "Begonia" },
-          { src: "img/photos/grass-sunset.jpg", alt: "Grass against the sunset" },
-          { src: "img/photos/dome.jpg", alt: "Painted dome" }
+          { src: "img/photos/storm-clouds.jpg", alt: "Storm clouds over the coast at dusk", w: 1800, h: 1200 },
+          { src: "img/photos/peacock.jpg", alt: "Peacock", w: 1800, h: 1200 },
+          { src: "img/photos/daisy.jpg", alt: "White and violet daisy", w: 1800, h: 1200 },
+          { src: "img/photos/ball-python.jpg", alt: "Ball python", w: 1800, h: 1200 },
+          { src: "img/photos/agapanthus.jpg", alt: "Agapanthus", w: 1800, h: 1200 },
+          { src: "img/photos/croton.jpg", alt: "Croton leaves", w: 1800, h: 1200 },
+          { src: "img/photos/begonia.jpg", alt: "Begonia", w: 1800, h: 1200 },
+          { src: "img/photos/grass-sunset.jpg", alt: "Grass against the sunset", w: 1800, h: 1200 },
+          { src: "img/photos/dome.jpg", alt: "Painted dome", w: 1800, h: 1231 }
         ],
         // shown only while photos is empty, so the page has a shape before the pictures arrive
         placeholders: ["Moon", "Flowers", "Lightning", "Moon", "Night sky", "Flowers"]
@@ -225,47 +218,38 @@ window.CONTENT = {
       {
         heading: "Experience",
         items: [
-          { title: "Materials and Processes Engineer", where: "Lockheed Martin Space, Sunnyvale, CA", date: "2024 to now",
-            text: "Solar array materials verification, adhesive bonding qualification, composite process control, root-cause analysis and designed experiments on flight hardware. Intern, then part-time through my final year at UC Merced, full-time since 2025." },
-          { title: "Electronic Materials and Processes Intern", where: "Lockheed Martin Space, Littleton, CO", date: "",
-            text: "Materials and processes support for spacecraft electronics." },
-          { title: "Engineering Intern", where: "Electrified Adventures", date: "",
-            text: "Three-phase motor systems and DC-to-AC motor controllers for electric bikes." }
-        ]
-      },
-      {
-        heading: "What I Work With",
-        lines: [
-          ["Composites", "Honeycomb sandwich panels, carbon fiber laminates and layup, rollable composite booms"],
-          ["Bonding", "Adhesive qualification, solar cell bonding, bonded-area measurement, failure investigation"],
-          ["Space environment", "Dielectric films, outgassing, thermal cycling and vacuum compliance, staking compounds"],
-          ["Electrical", "Flight harness wiring and crimping, IPC/WHMA-A-620 certified"],
-          ["Test and analysis", "Designed experiments, deflection testing, Python data and image processing"],
-          ["Fabrication", "FDM printing, fabric-embedded printed hinges, hand layup, bonding fixtures"],
-          ["RF", "Software-defined radio (HackRF One, bladeRF), phase interferometry, Fourier analysis"]
+          { title: "Materials and Processes Engineer, Solar Array Manufacturing Center", where: "Lockheed Martin Space, Sunnyvale, CA", date: "Jul 2025 to now",
+            text: "Bonding process development and qualification, designed experiments, root-cause investigations, and material compliance review across GPS III, Next Gen GEO, LM 400, and smallsat arrays. Qualified 50+ flight harness crimp combinations by pull test to NASA and IPC requirements." },
+          { title: "Electronic Materials and Processes Intern", where: "Lockheed Martin Space, Littleton, CO", date: "May 2024 to Jul 2025",
+            text: "Summer, then part-time through senior year. Reconciled 200,000+ part numbers across four business units for cross-division purchasing. Wrote test plans comparing Vertrel and IPA flux cleaning on circuit cards." },
+          { title: "Engineering Intern", where: "Electrified Adventures, Orange, CA", date: "May to Aug 2023",
+            text: "Integrated battery packs, controllers, and three-phase motors into e-bike drivetrains. Debugged faults with an oscilloscope." }
         ]
       },
       {
         heading: "Education",
         items: [
-          { title: "B.S. Mechanical Engineering, cum laude", where: "University of California, Merced", date: "2025", text: "" },
+          { title: "B.S. Mechanical Engineering, cum laude", where: "University of California, Merced", date: "2021 to 2025", text: "GPA 3.7" },
           { title: "EE 261: The Fourier Transform and Its Applications", where: "Stanford University", date: "Summer 2026", text: "" }
         ]
       },
       {
         heading: "Research",
         lines: [
-          ["Aeroelasticity", "Finite element analysis of the Pazy benchmark wing in HyperMesh and OptiStruct, with Dr. Sachin Goyal"],
-          ["Plasma", "Plasma-driven nitrogen fixation, Non-Equilibrium Plasma and Fluids Lab, with Dr. Venkattraman Ayyaswamy"],
-          ["Biophysics", "Molecular motors moving along the cytoskeleton, with Dr. Ajay Gopinathan"],
-          ["Capstone", "Guayule natural rubber processing, with Dr. Kara McCloskey. We used an industrial deli slicer as the precision cutting tool"]
+          ["Plasma", "Ran a 50 kV plasma reactor fixing nitrogen from air into water; treated water matched nitrogen-enriched soil in plant growth. Dr. Venkattraman Ayyaswamy, 2023 to 2025"],
+          ["Aeroelasticity", "Modeled the Pazy benchmark wing in HyperMesh and OptiStruct; stringers in place of solid material cut structural mass 44%. Dr. Sachin Goyal, 2024 to 2025"],
+          ["Capstone", "Processed raw guayule rubber into tensile and compression samples, adapting a deli slicer to cut repeatable 2 mm slices. Dr. Kara McCloskey, 2024 to 2025"],
+          ["Biophysics", "Simulated kinesin-2 and OSM-3 cargo transport blockage in Python. Dr. Ajay Gopinathan, 2021 to 2022"]
         ]
       },
       {
-        heading: "Certifications",
+        heading: "Skills",
         lines: [
-          ["IPC/WHMA-A-620", "Cable and wire harness assemblies"],
-          ["NAR Level 1", "High-power rocketry"]
+          ["Materials and test", "Adhesive qualification, designed experiments, lap-shear and tensile testing, microscopy, failure analysis, ASTM E595"],
+          ["Fabrication", "Composite layup, fixture machining, FDM printing (PETG), flight harness crimping"],
+          ["RF hardware", "bladeRF 2.0, HackRF One, Vivaldi antenna arrays, phase interferometry, synthetic aperture imaging"],
+          ["Software", "Python (NumPy, image processing, FFT and DSP), HyperMesh and OptiStruct"],
+          ["Certifications", "IPC/WHMA-A-620 cable and harness assemblies, NAR Level 1 high-power rocketry"]
         ]
       }
     ]
@@ -274,9 +258,9 @@ window.CONTENT = {
   // ---------------------------------------------------------------- links (bottom of every page)
   // leave href empty ("") to hide a link. Email looks like "mailto:you@example.com"
   links: [
-    { label: "LinkedIn", href: "" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/danielewis" },
     { label: "GitHub", href: "https://github.com/danielewis1019" },
     { label: "Resume", href: "resume.pdf" },
-    { label: "Email", href: "" }
+    { label: "Email", href: "mailto:danielewis2002@gmail.com" }
   ]
 };
