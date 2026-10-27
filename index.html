@@ -88,12 +88,12 @@ main{position:relative;z-index:3}
 
 
 
-.grp{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:20px 0;border-top:1px solid rgba(255,255,255,.08)}
-.grp h4{margin:0;font:11px/1.6 var(--mono);color:rgb(var(--acc));font-weight:400}
-.item{margin:0 0 16px}.item:last-child{margin:0}.it{font-size:17px;letter-spacing:-.005em}
-.meta{display:flex;gap:16px;flex-wrap:wrap;font:11px/1.6 var(--mono);color:var(--ash);margin:3px 0 6px}
-.item p,.line p{font-weight:300;font-size:15px;line-height:1.55;color:#cfccc4;margin:0}
-.line{display:grid;grid-template-columns:130px 1fr;gap:14px;margin:0 0 9px}.line span{font-size:14px;color:var(--bone)}
+
+
+
+
+
+
 
 .links{position:relative;z-index:3;display:flex;gap:22px;flex-wrap:wrap;padding:30px 8vw 70px;font:12px/1 var(--mono)}
 .links a{color:var(--ash);text-decoration:none;padding-bottom:3px;border-bottom:1px solid rgba(255,255,255,.15);transition:color .3s,border-color .3s}
@@ -116,7 +116,7 @@ main{position:relative;z-index:3}
 
 
 @media (max-width:900px){
-  .grp{grid-template-columns:1fr;gap:8px}.line{grid-template-columns:1fr;gap:2px}.bio p{font-size:15px}.links{padding:24px 20px 60px}
+  .bio p{font-size:15px}.links{padding:24px 20px 60px}
   .idrow{flex-direction:column;align-items:flex-start;gap:12px}.gcard.me{width:140px}.top a{padding:9px 10px}}
 @media (prefers-reduced-motion:reduce){.grain{animation:none}}
 
@@ -179,7 +179,7 @@ body.inlog .tfade,body.inlog .bfade{opacity:1}
 .role{font:12px/1.6 var(--mono);color:var(--bone);margin-top:28px}.role span{color:rgb(var(--acc));margin-right:14px}
 .bio{margin-top:12px}
 /* record: even rhythm */
-.grp{padding:16px 0;gap:18px}.item{margin:0 0 12px}.meta{margin:2px 0 5px}.line{margin:0 0 7px}
+
 
 
 @media (max-width:900px){
@@ -214,16 +214,16 @@ h2,.lstick h2,.galsec h2{font-stretch:112%;font-weight:400;font-size:var(--h2);l
 .ph:hover{transform:none;border-color:rgba(255,255,255,.24)}
 .ph img{aspect-ratio:auto;background:#0b0b0e}
 /* record: plain text in a two-column grid, no panel */
-.record{position:relative;padding:20vh var(--g) 6vh}
-.rec{max-width:820px}
-.rec h2{margin:0 0 22px}
-.grp{display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid rgba(255,255,255,.09)}
-.grp h4{margin:0;font:11px/1.7 var(--mono);color:var(--ash);font-weight:400;letter-spacing:.02em}
-.item{margin:0 0 18px}.item:last-child{margin:0}
-.it{font-size:17px;line-height:1.35;letter-spacing:-.005em}
-.meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:11px/1.6 var(--mono);color:var(--ash);margin:4px 0 7px}
-.item p,.line p{font-weight:300;font-size:15px;line-height:1.6;color:#c9c6be;margin:0}
-.line{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;margin:0 0 10px}.line:last-child{margin:0}.line span{font-size:14.5px;color:var(--bone)}
+
+
+
+
+
+
+
+
+
+
 /* projects: a typographic list. the hovered row lights, the colony builds that project beside it */
 .tiles{position:relative;min-height:100svh;padding:16vh var(--g) 10vh;display:flex;flex-direction:column;justify-content:center}
 .tiles h2{margin:0 0 26px}
@@ -242,18 +242,28 @@ h2,.lstick h2,.galsec h2{font-stretch:112%;font-weight:400;font-size:var(--h2);l
   :root{--body:15px}
   .stage{padding:0 20px}.hero .stage{padding-bottom:5vh}
   .lwrap{padding:0 20px}.galsec{padding:12vh 20px 6vh}.links{padding:24px 20px calc(56px + env(safe-area-inset-bottom,0px))}
-  .record{padding:12vh 20px 6vh}.grp{grid-template-columns:minmax(0,1fr);gap:10px}.line{grid-template-columns:minmax(0,1fr);gap:2px}
+  
   .tiles{padding:12vh 20px 8vh;justify-content:flex-end;min-height:100svh}
   .prow strong{font-size:32px}
   .idrow{flex-direction:column;align-items:flex-start;gap:14px}.gcard.me{width:132px}
   .top a{padding:9px 10px}
 }
 @media (min-width:600px) and (max-width:900px){
-  .lbody,.rec,.plist{max-width:600px}.gal{columns:3 180px}.gcard.me{width:160px}
+  .lbody,.plist{max-width:600px}.gal{columns:3 180px}.gcard.me{width:160px}
 }
 @media (max-width:600px){ .idrow{flex-direction:row;align-items:center;gap:16px} .gcard.me{width:86px;padding:5px;border-radius:15px} .gcard.me img{border-radius:10px} .name{font-size:clamp(44px,13vw,60px)} .role{margin-top:16px} }
 @media (max-width:380px){ .top a{padding:9px 8px;font-size:11px} .name{font-size:44px} }
 @media (prefers-reduced-motion:reduce){ .float{animation:none} .gcard{transition:none} }
+.lstick h2{overflow-wrap:normal;word-break:normal;hyphens:none}
+.entry .fig{margin:20px 0 4px;padding:8px;border-radius:20px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.12);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 24px 50px -18px rgba(0,0,0,.7);cursor:zoom-in;transition:border-color .4s}
+.entry .fig:hover{border-color:rgba(255,255,255,.24)}
+.entry .fig img,.entry .fig video{display:block;width:100%;height:auto;max-height:68vh;object-fit:cover;border-radius:13px;background:#0b0b0e}
+.entry .fig figcaption{font:11px/1.45 var(--mono);color:var(--ash);padding:10px 5px 3px}
+#lb video{max-width:100%;max-height:84vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);background:#000}
+#lb [hidden]{display:none}
+.entry .fig img[src$=".png"]{object-fit:contain;max-height:none;background:#0d0d11}
+@media (max-width:900px){ .entry .fig{padding:5px;border-radius:15px;margin-top:16px} .entry .fig img,.entry .fig video{border-radius:10px} }
 </style></head><body>
 <div class="tint on" data-w="home"></div><div class="tint" data-w="rf"></div><div class="tint" data-w="materials"></div><div class="tint" data-w="photo"></div>
 <canvas id="bg" aria-hidden="true"></canvas><canvas id="cv" aria-hidden="true"></canvas><canvas id="gx" aria-hidden="true"></canvas>
@@ -265,13 +275,17 @@ h2,.lstick h2,.galsec h2{font-stretch:112%;font-weight:400;font-size:var(--h2);l
 <script>
 // page builder. reads window.CONTENT (content.js) and writes the DOM the engine below expects:
 // one .world per entry in CONTENT.worlds, each holding pinned log sections (scroll drives the active entry),
-// home also gets the hero, the record and the project tiles. nothing here draws; it only lays out text.
+// home also gets the hero and the project list. nothing here draws; it only lays out text.
 (function(){
   const C=window.CONTENT, main=document.getElementById('main'), nav=document.getElementById('top');
   const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const paras=t=>(Array.isArray(t)?t:[t]).filter(Boolean).map(x=>'<p>'+esc(x)+'</p>').join('');
-  const shots=ph=>(ph&&ph.length)?'<div class="shots">'+ph.map(p=>
-    `<figure class="shot"><img loading="lazy" src="${esc(p.src)}" alt="${esc(p.caption||'')}" onerror="this.parentNode.remove()">${p.caption?'<figcaption>'+esc(p.caption)+'</figcaption>':''}</figure>`).join('')+'</div>':'';
+  // entry media: one glass frame per item, full width of the text column. a video item loops silently while its
+  // entry is the active one and pauses otherwise; src doubles as its poster. click opens it large
+  const shots=ph=>(ph&&ph.length)?ph.map(p=>{ const wh=p.w&&p.h?` width="${+p.w}" height="${+p.h}"`:'';
+    const m=p.video?`<video muted loop playsinline preload="none" poster="${esc(p.src)}"${wh} aria-label="${esc(p.alt||p.caption||'')}"><source src="${esc(p.video)}" type="video/mp4"><source src="${esc(p.video.replace(/\.mp4$/,'.webm'))}" type="video/webm"></video>`
+      :`<img loading="lazy" src="${esc(p.src)}" alt="${esc(p.alt||p.caption||'')}"${wh} onerror="this.closest('figure').remove()">`;
+    return `<figure class="fig${p.video?' vid':''}">${m}${p.caption?'<figcaption>'+esc(p.caption)+'</figcaption>':''}</figure>`; }).join(''):'';
   const CTL={mast:'moon',sweep:'sweep'};
   const SLIDER='<div class="slider"><label for="temp">lunar surface temperature, illustrative</label>'+
     '<input id="temp" type="range" min="-170" max="120" value="75"><div><b id="tv">75</b> C <span id="dn">day</span></div></div>';
@@ -304,15 +318,6 @@ h2,.lstick h2,.galsec h2{font-stretch:112%;font-weight:400;font-size:var(--h2);l
       `${H.role?'<div class="role"><span>Current role</span>'+esc(H.role)+'</div>':''}`+
       `<div class="bio">${paras(H.bio)}</div>${H.line?'<div class="under">'+esc(H.line)+'</div>':''}</div></div></section>`;
   }
-  function record(Rc){
-    if(!Rc) return '';
-    return `<section class="record" data-shape="dust"><div class="rec"><h2>${esc(Rc.title)}</h2>`+
-      (Rc.groups||[]).map(g=>`<div class="grp"><h4>${esc(g.heading)}</h4><div>`+
-        (g.items||[]).map(i=>`<div class="item"><div class="it">${esc(i.title)}</div>`+
-          `<div class="meta"><span>${esc(i.where)}</span>${i.date?'<span>'+esc(i.date)+'</span>':''}</div>${i.text?'<p>'+esc(i.text)+'</p>':''}</div>`).join('')+
-        (g.lines||[]).map(l=>`<div class="line"><span>${esc(l[0])}</span><p>${esc(l[1])}</p></div>`).join('')+
-      `</div></div>`).join('')+`</div></section>`;
-  }
   // projects: a typographic list, one row per world. hovering a row has the colony build that world's object
   function tiles(){
     const t=C.worlds.filter(w=>w.tile);
@@ -332,11 +337,11 @@ h2,.lstick h2,.galsec h2{font-stretch:112%;font-weight:400;font-size:var(--h2);l
     if(wi===0) s+=hero(C.hero);
     (w.logs||[]).forEach((L,li)=>{ s+=log(L,w.slider&&li===0); });
     if(w.gallery) s+=gallery(w.gallery);
-    if(wi===0){ s+=record(C.record); s+=tiles(); }
+    if(wi===0) s+=tiles();
     html+=`<div class="world" data-w="${esc(w.id)}">${s}${links}</div>`;
   });
   main.innerHTML=html;
-  document.body.insertAdjacentHTML('beforeend','<figure id="lb" aria-hidden="true"><img alt=""><figcaption></figcaption></figure>');
+  document.body.insertAdjacentHTML('beforeend','<figure id="lb" aria-hidden="true"><img alt=""><video muted loop playsinline controls hidden></video><figcaption></figcaption></figure>');
 })();
 </script>
 <script>
@@ -676,13 +681,22 @@ function logFrame(s){ const y=TRIG(); let a=0;
   if(a!==s.act){ s.act=a;
     s.ents.forEach((e,i)=>{ e.classList.toggle('on',i===a); e.classList.toggle('past',i<a); });
     s.lis.forEach((li,i)=>{ li.classList.toggle('on',i===a); li.classList.toggle('past',i<a); });
+    s.ents.forEach((e,i)=>e.querySelectorAll('video').forEach(v=>{ if(i===a && !REDUCED){ const pr=v.play(); if(pr) pr.catch(()=>{}); } else v.pause(); }));
     const li=s.lis[a];
     if(s.mark){ s.mark.style.height=li.offsetHeight+'px'; s.mark.style.transform='translateY('+li.offsetTop+'px)'; }
     if(innerWidth<900 && s.idx) s.idx.scrollTo({left:li.offsetLeft-s.idx.clientWidth/2+li.offsetWidth/2,behavior:'smooth'}); }
   if(s.fill){ const b=s.body.getBoundingClientRect(), pr=Math.min(1,Math.max(0,(y-b.top)/Math.max(1,b.height-innerHeight*.4)));
     s.fill.style.transform='scaleY('+pr.toFixed(4)+')'; }
+  // phones: the particles own the top of the screen, so text fades out before it scrolls into them
+  if(innerWidth<900){ const cut=Math.round(innerHeight*.47-s.body.getBoundingClientRect().top); if(cut!==s.cut){ s.cut=cut;
+      const m='linear-gradient(to bottom,transparent '+(cut-36)+'px,#000 '+(cut+36)+'px)'; s.body.style.webkitMaskImage=m; s.body.style.maskImage=m; } }
+  else if(s.cut!=null){ s.cut=null; s.body.style.webkitMaskImage=''; s.body.style.maskImage=''; }
   return {a,sub}; }
-function logInit(){ secs.forEach(s=>{ s.ents=[...s.el.querySelectorAll('.entry')]; if(!s.ents.length) return;
+// section titles never break inside a word: if the longest word is wider than the index column, step the size down until it fits
+function fitHeads(){ document.querySelectorAll('.world.on .lstick h2').forEach(h=>{ h.style.fontSize=''; let f=parseFloat(getComputedStyle(h).fontSize), n=0;
+  while(h.scrollWidth>h.clientWidth+1 && f>20 && n++<40){ f-=1; h.style.fontSize=f+'px'; } }); }
+addEventListener('resize',fitHeads); document.fonts&&document.fonts.ready.then(fitHeads);
+function logInit(){ fitHeads(); secs.forEach(s=>{ s.ents=[...s.el.querySelectorAll('.entry')]; if(!s.ents.length) return;
   s.idx=s.el.querySelector('.idx'); s.mark=s.el.querySelector('.idx .mark'); s.fill=s.el.querySelector('.idx .fill'); s.body=s.el.querySelector('.lbody'); s.act=-1; }); }
 addEventListener('resize',()=>secs.forEach(s=>{ s.act=-1; }));
 // click a title in the index: scroll so that entry sits on the trigger line
@@ -693,11 +707,15 @@ document.addEventListener('click',e=>{ const li=e.target.closest('.idx li'); if(
 let hoverShape=null, hoverW=null;
 document.addEventListener('pointerover',e=>{ const tl=e.target.closest&&e.target.closest('.prow'); hoverShape=tl?(tl.dataset.preview||null):null; hoverW=tl?tl.dataset.w:null; });
 document.addEventListener('focusin',e=>{ const tl=e.target.closest&&e.target.closest('.prow'); hoverShape=tl?(tl.dataset.preview||null):null; hoverW=tl?tl.dataset.w:null; });
-// photography: click a frame to see it large, click again or press escape to close
-document.addEventListener('click',e=>{ const f=e.target.closest('.gal .ph'); const lb=document.getElementById('lb'); if(!lb) return;
-  if(f){ const im=f.querySelector('img'); if(!im) return; lb.querySelector('img').src=im.src; const fc=f.querySelector('figcaption'); lb.querySelector('img').alt=im.alt; lb.querySelector('figcaption').textContent=fc?fc.textContent:''; lb.classList.add('on'); return; }
-  if(e.target.closest('#lb')) lb.classList.remove('on'); });
-addEventListener('keydown',e=>{ if(e.key==='Escape'){ const lb=document.getElementById('lb'); if(lb) lb.classList.remove('on'); } });
+// photos and entry media: click a frame to see it large, click again or press escape to close
+document.addEventListener('click',e=>{ const lb=document.getElementById('lb'); if(!lb) return;
+  const f=e.target.closest('.gal .ph, .entry .fig');
+  if(f){ const v=f.querySelector('video'), im=f.querySelector('img'), fc=f.querySelector('figcaption'), li=lb.querySelector('img'), lv=lb.querySelector('video');
+    if(v){ li.hidden=true; lv.hidden=false; lv.src=v.currentSrc||v.querySelector('source').src; lv.play().catch(()=>{}); }
+    else if(im){ lv.hidden=true; lv.pause(); lv.removeAttribute('src'); li.hidden=false; li.src=im.src; li.alt=im.alt; }
+    lb.querySelector('figcaption').textContent=fc?fc.textContent:''; lb.classList.add('on'); return; }
+  if(e.target.closest('#lb')){ lb.classList.remove('on'); const lv=lb.querySelector('video'); lv.pause(); } });
+addEventListener('keydown',e=>{ if(e.key==='Escape'){ const lb=document.getElementById('lb'); if(lb){ lb.classList.remove('on'); lb.querySelector('video').pause(); } } });
 // worlds: accent rgb + readout. routing by hash so a recruiter can be sent straight to #rf
 // worlds come from content.js: id -> accent rgb, id -> background scene (home, materials, rf)
 const WORLDS={}, SCENE={}; CONTENT.worlds.forEach(w=>{ WORLDS[w.id]=w.accent; SCENE[w.id]=w.scene||'home'; });
@@ -870,7 +888,7 @@ function frame(now){
   { const a=hov&&WORLDS[hoverW]?WORLDS[hoverW]:WORLDS[world]; if(a!==ACC) ACC=a; }   // a hovered project previews in its own accent
   if(!SH[want]) want=curName||'earth';
   if(started) assemble(want);
-  let tx=mob()?.5:(w<1300?.83:.76), ty=mob()?.33:.5, ts=mob()?.25:(w<1300?.26:.33);
+  let tx=mob()?.5:(w<1300?.83:.785), ty=mob()?.33:.5, ts=mob()?.25:(w<1300?.26:.31);
   if(cs.id==='arrive'){ const e=p*p*(3-2*p), ph=w<600; tx=mob()?.5:.68-.08*e; ty=ph?.19:mob()?.27:.42+.06*e; ts=ph?.17+.07*e:mob()?.2+.14*e:.2+.24*e; }
   if(want==='dust'){ tx=.5; ty=.5; ts=.36; } else if(onTiles){ tx=mob()?.5:.77; ty=mob()?.22:.5; ts=mob()?.22:.24; }
   const ca=1-Math.exp(-dt*3); vcx+=(tx-vcx)*ca; vcy+=(ty-vcy)*ca; vs+=(ts-vs)*ca;

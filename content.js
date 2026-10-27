@@ -88,12 +88,12 @@ window.CONTENT = {
             {
               date: "Jul 2026", title: "Spiral Kirigami Disc", shape: "lotus",
               text: "Next I cut a spiral kirigami disc from 0.020 in polycarbonate by hand, with a compass, a ruler, and a razor blade. Twisting the hub made all eight arms buckle out of plane together. It moved, but it did not read as opening and closing.",
-              photos: []
+              photos: [ { src: "img/log/kirigami-disc.jpg", alt: "Spiral kirigami disc cut from clear polycarbonate", caption: "0.020 in polycarbonate, cut by hand", w: 1400, h: 1400 } ]
             },
             {
               date: "Aug 2026", title: "Origami: The Flasher Fold", shape: "lotus",
               text: "Deployable space structures lean on origami: arrays, antennas, and starshades launch folded and open in orbit. A flasher pattern winds a large sheet into a small bundle and unfolds it in one motion. I folded paper and card stock from a stencil until the sequence was repeatable. Carbon fiber cracks if you crease it, so the hinge became the problem to solve.",
-              photos: []
+              photos: [ { src: "img/log/flasher-closed-open.jpg", alt: "Card stock flasher fold, closed and open", caption: "Flasher fold in card stock, closed and open", w: 1616, h: 800 } ]
             },
             {
               date: "Sep 2026", title: "Hinges: Kapton, Then Printed Tiles", shape: "lotus",
@@ -103,26 +103,26 @@ window.CONTENT = {
             {
               date: "Sep 2026", title: "CTE Mismatch", shape: "strip",
               text: "Every material grows a little when heated. How much it grows per degree is its coefficient of thermal expansion, or CTE. Bond two metals with different CTEs and the strip bends as the temperature changes, the same way a dial thermometer turns its needle. That bend was my first candidate actuator. Drag the slider to heat or cool the strip.",
-              photos: []
+              photos: [ { video: "img/log/cte-mismatch.mp4", src: "img/log/cte-mismatch.jpg", alt: "Bimetal strip bending as it heats and flattening as it cools", caption: "A bimetal strip bending as it heats, then flattening as it cools. 2.5x speed", w: 1200, h: 600 } ]
             },
             {
               date: "Sep 2026", title: "Bimetal Finger Tests", shape: "strip",
               text: [
                 "I bonded zinc, aluminum, and steel into 14 bimetal strips, each 1 x 6 inches with layer thickness as the only variable. Each one was heated toward 120\u00b0C, with deflection read off a ruler and surface temperature off an infrared thermometer every 20 seconds.",
-                "I checked every strip against Timoshenko\u2019s bimetal theory: 12 of 14 bent within a factor of two of prediction, and the most responsive used 0.1 to 0.2 mm steel. Peak deflection was 10.7 mm at 120\u00b0C. A two-way nitinol spring gave 31 mm of stroke at 80\u00b0C, so the petals run on nitinol.",
+                "In all three metal pairs, the 0.1 and 0.2 mm steel layers bent the most. The best strip, 0.5 mm zinc on 0.1 mm steel, bowed 10.7 mm for a 120\u00b0C rise. Heated the same way, the nitinol springs grew about 31 mm, so the petals run on nitinol.",
                 "Zinc also disqualifies itself for flight: it sublimates in vacuum, the vapor redeposits as a conductive film that can short electronics, and it grows whiskers. NASA\u2019s parts program prohibits zinc plating on space electronics for exactly these reasons, the same kind of material screening I do every day at Lockheed."
               ],
-              photos: []
+              photos: [ { src: "img/log/bimetal-samples.jpg", alt: "Fourteen bonded bimetal samples labeled by metal pair and thickness", caption: "The 14 bonded samples, labeled by metal pair and layer thickness", w: 1600, h: 844 }, { src: "img/log/bimetal-bow.png", alt: "Bow versus surface temperature for each bimetal strip, grouped by metal pair", caption: "Bow against measured surface temperature, one line per strip. The zinc on aluminum strip is not shown", w: 1600, h: 2040 } ]
             },
             {
               date: "Oct 2026", title: "Two-Way Nitinol", shape: "spring",
-              text: "Nitinol is a nickel-titanium shape memory alloy. A two-way spring changes length on its own as it crosses its transition temperatures: these finish contracting near 30°C and finish expanding near 60°C. The springs are not the innovation. They are the most direct way to prove the mechanism moves on temperature alone. Drag the slider across 30 to 60°C.",
-              photos: []
+              text: "Nitinol is a nickel-titanium shape memory alloy. A two-way spring changes length on its own as it crosses its transition temperatures: these finish contracting near 30°C and finish expanding near 60°C. Heated with a heat gun to roughly 80 to 100\u00b0C, all nine springs I bought grew 27 to 38 mm, about 2.7 times their room-temperature length. The springs are not the innovation. They are the most direct way to prove the mechanism moves on temperature alone. Drag the slider across 30 to 60°C.",
+              photos: [ { src: "img/log/nitinol-springs.png", alt: "Length of nine two-way nitinol springs at room temperature and heated", caption: "All nine springs, room temperature and heated", w: 1600, h: 1240 } ]
             },
             {
               date: "Oct 2026", title: "Half-Scale Prototype", shape: "mini",
               text: "Eight petals on a fixed skeleton, all driven by one central nitinol spring through a sliding plate and eight links, so every petal moves together. Designed as a parametric CAD model and checked for collisions through the full range of motion before printing. PETG conducts heat poorly, so this one proves the motion, not the cooling.",
-              photos: []
+              photos: [ { src: "img/log/half-scale-closed-open.jpg", alt: "Half-scale Nyx prototype in black PETG, closed and open", caption: "Half-scale prototype assembled in PETG, closed and open", w: 1616, h: 640 } ]
             },
             {
               date: "Oct 2026", title: "Full-Size Prototype, In Build", shape: "lotus",
@@ -169,12 +169,12 @@ window.CONTENT = {
             {
               date: "Aug 2026", title: "The Rail", shape: "rf",
               text: "Two Vivaldi boards hang from a pair of wooden rails. One is fixed. The other slides, adjustable from 0.5 to 60 cm apart.",
-              photos: []
+              photos: [ { src: "img/log/vivaldi-rail.jpg", alt: "Two Vivaldi antennas hanging from wooden rails", caption: "Two Vivaldi antennas on wooden bars, one fixed, one sliding", w: 1600, h: 1137 } ]
             },
             {
               date: "Sep 2026", title: "Synthetic Aperture Imaging", shape: "rf", control: "sweep",
-              text: "Sliding one antenna through many positions along the rail while the other stays fixed turns two small antennas into one long virtual array. Combining the phase measured at each position produces an angle map of where signal energy arrives from, overlaid on a photo of the scene. A straight rail resolves direction along its axis, side to side, not distance or height. Pointed so my Wi-Fi router sat at 0°, 30°, 45°, and 90°, it placed the energy on the router every time.",
-              photos: []
+              text: "Sliding one antenna through many positions along the rail while the other stays fixed turns two small antennas into one long virtual array. Combining the phase measured at each position produces an angle map of where signal energy arrives from, overlaid on a photo of the scene. A straight rail resolves direction along its axis, side to side, not distance or height. To test it, I left my Wi-Fi router where it was, about 20\u00b0 right of the rail\u2019s forward direction, and turned the rail 0\u00b0, 30\u00b0, 45\u00b0, and 90\u00b0. The strongest source tracked the router at every step: 21\u00b0 right, 7\u00b0 left, 39\u00b0 left, and 62\u00b0 left, against roughly 20\u00b0 right, 10\u00b0 left, 25\u00b0 left, and 70\u00b0 left expected. Every reading landed within one 22\u00b0 resolution cell, including at 90\u00b0, where the router is outside the camera frame.",
+              photos: [ { video: "img/log/sar-four-angles.mp4", src: "img/log/sar-four-angles.jpg", alt: "Radio images over photos of the room as the rail turns, blue tiles on the router", caption: "The rail turned 0\u00b0, 30\u00b0, 45\u00b0, and 90\u00b0. Blue tiles mark where the router\u2019s signal arrives from", w: 1600, h: 960 } ]
             },
             {
               date: "Next", title: "Baseline Sweep", shape: "rf",
@@ -210,50 +210,6 @@ window.CONTENT = {
       }
     }
   ],
-
-  // ---------------------------------------------------------------- record (home page, after the programs)
-  record: {
-    title: "Record",
-    groups: [
-      {
-        heading: "Experience",
-        items: [
-          { title: "Materials and Processes Engineer, Solar Array Manufacturing Center", where: "Lockheed Martin Space, Sunnyvale, CA", date: "Jul 2025 to now",
-            text: "Bonding process development and qualification, designed experiments, root-cause investigations, and material compliance review across GPS III, Next Gen GEO, LM 400, and smallsat arrays. Qualified 50+ flight harness crimp combinations by pull test to NASA and IPC requirements." },
-          { title: "Electronic Materials and Processes Intern", where: "Lockheed Martin Space, Littleton, CO", date: "May 2024 to Jul 2025",
-            text: "Summer, then part-time through senior year. Reconciled 200,000+ part numbers across four business units for cross-division purchasing. Wrote test plans comparing Vertrel and IPA flux cleaning on circuit cards." },
-          { title: "Engineering Intern", where: "Electrified Adventures, Orange, CA", date: "May to Aug 2023",
-            text: "Integrated battery packs, controllers, and three-phase motors into e-bike drivetrains. Debugged faults with an oscilloscope." }
-        ]
-      },
-      {
-        heading: "Education",
-        items: [
-          { title: "B.S. Mechanical Engineering, cum laude", where: "University of California, Merced", date: "2021 to 2025", text: "GPA 3.7" },
-          { title: "EE 261: The Fourier Transform and Its Applications", where: "Stanford University", date: "Summer 2026", text: "" }
-        ]
-      },
-      {
-        heading: "Research",
-        lines: [
-          ["Plasma", "Ran a 50 kV plasma reactor fixing nitrogen from air into water; treated water matched nitrogen-enriched soil in plant growth. Dr. Venkattraman Ayyaswamy, 2023 to 2025"],
-          ["Aeroelasticity", "Modeled the Pazy benchmark wing in HyperMesh and OptiStruct; stringers in place of solid material cut structural mass 44%. Dr. Sachin Goyal, 2024 to 2025"],
-          ["Capstone", "Processed raw guayule rubber into tensile and compression samples, adapting a deli slicer to cut repeatable 2 mm slices. Dr. Kara McCloskey, 2024 to 2025"],
-          ["Biophysics", "Simulated kinesin-2 and OSM-3 cargo transport blockage in Python. Dr. Ajay Gopinathan, 2021 to 2022"]
-        ]
-      },
-      {
-        heading: "Skills",
-        lines: [
-          ["Materials and test", "Adhesive qualification, designed experiments, lap-shear and tensile testing, microscopy, failure analysis, ASTM E595"],
-          ["Fabrication", "Composite layup, fixture machining, FDM printing (PETG), flight harness crimping"],
-          ["RF hardware", "bladeRF 2.0, HackRF One, Vivaldi antenna arrays, phase interferometry, synthetic aperture imaging"],
-          ["Software", "Python (NumPy, image processing, FFT and DSP), HyperMesh and OptiStruct"],
-          ["Certifications", "IPC/WHMA-A-620 cable and harness assemblies, NAR Level 1 high-power rocketry"]
-        ]
-      }
-    ]
-  },
 
   // ---------------------------------------------------------------- links (bottom of every page)
   // leave href empty ("") to hide a link. Email looks like "mailto:you@example.com"
