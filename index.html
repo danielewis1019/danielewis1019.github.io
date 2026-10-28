@@ -647,10 +647,7 @@ function shMini(){ const s=mk(), SC=1/46, ZC=8, A=28, PL=50, LN=Math.asin((A-10.
       s.pos[i*3]=X*SC; s.pos[i*3+1]=(Z-ZC)*SC; s.pos[i*3+2]=Y*SC; } };
   s.dyn(0,1);
   return Object.assign(s,{sway:.3,yaw0:.4,tilt:.42,scale:.8}); }
-const SHF={earth:shEarth,leo:shLeo,geo:shGeo,moon:shMoon,rf:shRf,lotus:shLotus,strip:shStrip,mini:shMini,spring:shSpring,dust:shDust}, SHB={};
-const SH=new Proxy(SHB,{get:(o,k)=>{ if(!(k in o) && SHF[k]) o[k]=SHF[k](); return o[k]; }});
-SH.earth; { const q=Object.keys(SHF), idle=window.requestIdleCallback||(f=>setTimeout(()=>f({timeRemaining:()=>8}),60));
-  const step=d=>{ while(q.length && d.timeRemaining()>4){ const k=q.shift(); SH[k]; } if(q.length) idle(step); }; idle(step); }
+const SH={earth:shEarth(),leo:shLeo(),geo:shGeo(),moon:shMoon(),rf:shRf(),lotus:shLotus(),strip:shStrip(),mini:shMini(),spring:shSpring(),dust:shDust()};
 
 let gxDirty=true, jarT=-9, cur=null, curName='', yaw=0, tilt=.4, scale=1, t=0, powerT=-1, flashT=-9, done=false, oy=0;
 const tw=[0,0,0];
@@ -894,7 +891,7 @@ function frame(now){
   { const pw=hov?projW:(onTiles?cs.el.dataset.w0:null), a=pw&&WORLDS[pw]?WORLDS[pw]:WORLDS[world]; if(a!==ACC) ACC=a; }   // the shown project wears its own accent
   if(!SH[want]) want=curName||'earth';
   if(started) assemble(want);
-  let tx=mob()?.5:(w<1300?.83:.785), ty=mob()?.33:.5, ts=mob()?.25:(w<1300?.26:.31);
+  let tx=mob()?.5:(w<1300?.83:.76), ty=mob()?.33:.5, ts=mob()?.25:(w<1300?.26:.33);
   if(cs.id==='arrive'){ const e=p*p*(3-2*p), ph=w<600; tx=mob()?.5:.68-.08*e; ty=ph?.19:mob()?.27:.42+.06*e; ts=ph?.17+.07*e:mob()?.2+.14*e:.2+.24*e; }
   if(want==='dust'){ tx=.5; ty=.5; ts=.36; } else if(onTiles){ tx=mob()?.5:.77; ty=mob()?.22:.5; ts=mob()?.22:.24; }
   const ca=1-Math.exp(-dt*3); vcx+=(tx-vcx)*ca; vcy+=(ty-vcy)*ca; vs+=(ts-vs)*ca;
@@ -948,7 +945,7 @@ function frame(now){
   if(gl.length){ gxDirty=true; gtx.font='10px "IBM Plex Mono", ui-monospace, monospace'; gtx.textAlign='center'; gtx.textBaseline='middle';
     for(let j=0;j<gl.length;j+=4){ gtx.fillStyle=gl[j+3]?`rgba(${ACC},.9)`:'rgba(233,230,223,.7)'; gtx.fillText(GL[gl[j+2]],gl[j],gl[j+1]); } }
   if(ga>=0 && ga<.6 && cur){ const a=1-ga/.6, rr=S*(1.5+ga*.9), g=ctx.createRadialGradient(cx,cy,0,cx,cy,rr);
-    g.addColorStop(0,`rgba(${ACC},${.1*a*a})`); g.addColorStop(.35,`rgba(${ACC},${.04*a*a})`); g.addColorStop(.7,`rgba(${ACC},${.01*a*a})`); g.addColorStop(1,`rgba(${ACC},0)`);
+    g.addColorStop(0,`rgba(${ACC},${.24*a*a})`); g.addColorStop(.35,`rgba(${ACC},${.1*a*a})`); g.addColorStop(.7,`rgba(${ACC},${.025*a*a})`); g.addColorStop(1,`rgba(${ACC},0)`);
     ctx.globalCompositeOperation='lighter'; ctx.fillStyle=g; ctx.fillRect(cx-rr,cy-rr,rr*2,rr*2); ctx.globalCompositeOperation='source-over'; }
   // home marker: drawn as an instrument over the globe, not as colony dots. dot, ping ring, leader, label.
   if(curName==='earth' && done){ const o=[0,0,0]; sph(HOME.lat,HOME.lon,1,o,0); Wp(o[0]*scale,o[1]*scale,o[2]*scale,o);
