@@ -10,7 +10,7 @@ window.CONTENT = {
     photo: "img/me.jpg",
     role: "Materials and Processes Engineer, Lockheed Martin Space",
     bio: [
-      "I support material selection and qualification for spacecraft solar arrays and structures: substrates, dielectric systems, structural adhesives, composite laminates, harness materials. Low Earth orbit (LEO), medium Earth orbit (MEO), geosynchronous orbit (GEO), and the lunar surface each impose their own hostile environment consisting of thermal cycling, vacuum, and radiation. I qualify the materials that go into orbit and write the procedures that turn designs into flight hardware."
+      "I qualify materials for spacecraft solar arrays and structures: substrates, dielectric films, structural adhesives, composite laminates, and harness materials. Each has to survive the thermal cycling, vacuum, and radiation of its orbit, whether that\u2019s low Earth orbit (LEO), medium Earth orbit (MEO), geosynchronous orbit (GEO), or the lunar surface. I also write the procedures that turn new designs into flight hardware."
     ],
     line: "B.S. Mechanical Engineering, UC Merced. Mountain View, CA.",
     // the blue dot on the globe

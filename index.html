@@ -597,13 +597,15 @@ function shSpring(){ const s=mk(), SC=1/80, RC=13, RW=1.7, TURNS=11;
       s.pos[i*3]=X*SC; s.pos[i*3+1]=Y*SC; s.pos[i*3+2]=Z*SC; } };
   s.dyn(0,1);
   return Object.assign(s,{sway:.4,yaw0:.5,tilt:.25,scale:.85}); }
-// dust: the colony at rest. agents spread loose and dim across the whole screen and drift, behind the record
+// dust: the colony at rest on the photography page. a thin, slowly turning disc of sand behind the photos,
+// denser toward the middle, so nothing races out to the screen edges
 function shDust(){ const s=mk(), b=new Float32Array(N*3), ph=new Float32Array(N);
-  for(let k=0;k<N;k++){ b[k*3]=(R()*2-1)*3.4; b[k*3+1]=(R()*2-1)*1.7; b[k*3+2]=(R()*2-1)*1.3; ph[k]=R()*TAU; s.kind[k]=16; s.key[k]=R(); }
+  for(let k=0;k<N;k++){ const r=1.55*Math.pow(R(),.6), a=R()*TAU, th=(R()-.5)*.16*(1.2-r/1.55);
+    b[k*3]=r*Math.cos(a); b[k*3+1]=th; b[k*3+2]=r*Math.sin(a); ph[k]=R()*TAU; s.kind[k]=16; s.key[k]=r/1.55; }
   s.dyn=(t)=>{ for(let i=0;i<N;i++){ const q=ph[i];
-      s.pos[i*3]=b[i*3]+.09*Math.sin(t*.11+q); s.pos[i*3+1]=b[i*3+1]+.07*Math.cos(t*.09+q*1.7); s.pos[i*3+2]=b[i*3+2]+.06*Math.sin(t*.07+q*2.3); } };
+      s.pos[i*3]=b[i*3]+.025*Math.sin(t*.2+q); s.pos[i*3+1]=b[i*3+1]+.02*Math.cos(t*.17+q*1.7); s.pos[i*3+2]=b[i*3+2]+.025*Math.sin(t*.15+q*2.3); } };
   s.dyn(0,1);
-  return Object.assign(s,{sway:0,yaw0:0,tilt:0,scale:1,quiet:true}); }
+  return Object.assign(s,{spin:.035,tilt:.32,scale:1,quiet:true}); }
 // nyx half-scale prototype: octagonal bud on a fixed skeleton, one central two-way nitinol spring.
 // mm, z up. 8 petals hinged on the edges of an octagon (apothem 28) at z=0, 50 long, leaning 20.6 deg in; width
 // follows the octagon so the closed petals tile a sealed octagonal frustum. 8 ribs on the seams, crown cap on top.
@@ -890,7 +892,7 @@ function frame(now){
   const inLog=!!(cs.ents&&cs.ents.length); if(inLog!==document.body.classList.contains('inlog')) document.body.classList.toggle('inlog',inLog);
   const onTiles=cs.el.classList.contains('tiles'), hov=onTiles && projShape && SH[projShape]; if(hov) want=projShape;
   { const pw=hov?projW:(onTiles?cs.el.dataset.w0:null), a=pw&&WORLDS[pw]?WORLDS[pw]:WORLDS[world]; if(a!==ACC) ACC=a; }   // the shown project wears its own accent
-  SPK=onTiles?.55:1;
+  SPK=.605;   // one travel speed everywhere: the calm projects pace plus 10%
   if(!SH[want]) want=curName||'earth';
   if(started) assemble(want);
   let tx=mob()?.5:(w<1300?.83:.785), ty=mob()?.33:.5, ts=mob()?.25:(w<1300?.26:.31);
