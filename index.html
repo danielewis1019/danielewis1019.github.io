@@ -879,7 +879,7 @@ function drawBg(now){ const tt=now/1000;
     tmpX.drawImage(sceneC,0,0,sw,sh); bx.imageSmoothingEnabled=false; bx.drawImage(tmpC,0,0,sw,sh,0,0,BW,BH); }
   else bx.drawImage(sceneC,0,0);
   if(TR) bgc.style.transform=`rotate(${rot}deg) scale(${1+Math.abs(rot)*.018})`; }
-const MAXV=3.6, MAXF=30, mob=()=>w<900; let SPK=1;   // SPK slows travel on the projects list
+const MAXV=3.6, MAXF=30, mob=()=>w<900;
 function frame(now){
   const dt=Math.min(.04,(now-lastNow)/1000); lastNow=now; t+=REDUCED?dt*.4:dt;
   { const k=1-Math.exp(-dt*2.5), ty0=mx>-1e3?(mx/w-.5)*.18:0, tt0=my>-1e3?(my/h-.5)*.1:0; pyaw+=(ty0-pyaw)*k; ptilt+=(tt0-ptilt)*k; }
@@ -892,7 +892,6 @@ function frame(now){
   const inLog=!!(cs.ents&&cs.ents.length); if(inLog!==document.body.classList.contains('inlog')) document.body.classList.toggle('inlog',inLog);
   const onTiles=cs.el.classList.contains('tiles'), hov=onTiles && projShape && SH[projShape]; if(hov) want=projShape;
   { const pw=hov?projW:(onTiles?cs.el.dataset.w0:null), a=pw&&WORLDS[pw]?WORLDS[pw]:WORLDS[world]; if(a!==ACC) ACC=a; }   // the shown project wears its own accent
-  SPK=.605;   // one travel speed everywhere: the calm projects pace plus 10%
   if(!SH[want]) want=curName||'earth';
   if(started) assemble(want);
   let tx=mob()?.5:(w<1300?.83:.785), ty=mob()?.33:.5, ts=mob()?.25:(w<1300?.26:.31);
@@ -914,7 +913,7 @@ function frame(now){
     if(st[i]===2){ const jt=.0035; P[ix]=tw[0]+jt*Math.sin(t*6+i); P[ix+1]=tw[1]+jt*Math.cos(t*5+i*1.3); P[ix+2]=tw[2]; locked++; continue; }
     const dx=tw[0]-P[ix], dy=tw[1]-P[ix+1], dz=tw[2]-P[ix+2], d=Math.hypot(dx,dy,dz);
     if(d<.06){ st[i]=2; locked++; continue; }
-    const wnt=MAXV*SPK*Math.min(1,d/.25)/d, wob=.7*Math.min(1,d)*Math.sin(t*2.3+i*.37);
+    const wnt=MAXV*Math.min(1,d/.25)/d, wob=.7*Math.min(1,d)*Math.sin(t*2.3+i*.37);
     let ax=(dx*wnt-V[ix])*6+(-dz/d)*wob*4, ay=(dy*wnt-V[ix+1])*6+1.2*wob*Math.cos(i), az=(dz*wnt-V[ix+2])*6+(dx/d)*wob*4;
     const am=Math.hypot(ax,ay,az); if(am>MAXF){ ax*=MAXF/am; ay*=MAXF/am; az*=MAXF/am; }
     V[ix]+=ax*dt; V[ix+1]+=ay*dt; V[ix+2]+=az*dt; P[ix]+=V[ix]*dt; P[ix+1]+=V[ix+1]*dt; P[ix+2]+=V[ix+2]*dt; moving++; }
