@@ -10,7 +10,7 @@ window.CONTENT = {
     photo: "img/me.jpg",
     role: "Materials and Processes Engineer, Lockheed Martin Space",
     bio: [
-      "I support material selection and qualification for spacecraft solar arrays and structures: substrates, dielectric systems, structural adhesives, composite laminates, harness materials. Low Earth orbit (LEO), medium Earth orbit (MEO), geosynchronous orbit (GEO), and the lunar surface each impose their own hostile environment consisting of thermal cycling, vacuum, and radiation. My role is allocating the right material to withstand each environment for the full extent of the mission."
+      "I support material selection and qualification for spacecraft solar arrays and structures: substrates, dielectric systems, structural adhesives, composite laminates, harness materials. Low Earth orbit (LEO), medium Earth orbit (MEO), geosynchronous orbit (GEO), and the lunar surface each impose their own hostile environment consisting of thermal cycling, vacuum, and radiation. I qualify the materials that go into orbit and write the procedures that turn designs into flight hardware."
     ],
     line: "B.S. Mechanical Engineering, UC Merced. Mountain View, CA.",
     // the blue dot on the globe
@@ -117,12 +117,12 @@ window.CONTENT = {
             {
               date: "Oct 2026", title: "Two-Way Nitinol", shape: "spring",
               text: "Nitinol is a nickel-titanium shape memory alloy. A two-way spring changes length on its own as it crosses its transition temperatures: these finish contracting near 30°C and finish expanding near 60°C. Heated with a heat gun to roughly 80 to 100\u00b0C, all nine springs I bought grew 27 to 38 mm, about 2.7 times their room-temperature length. The springs are not the innovation. They are the most direct way to prove the mechanism moves on temperature alone. Drag the slider across 30 to 60°C.",
-              photos: [ { src: "img/log/nitinol-springs.png", alt: "Length of nine two-way nitinol springs at room temperature and heated", caption: "All nine springs, room temperature and heated", w: 1600, h: 1240 } ]
+              photos: [ { video: "img/log/nitinol-spring.mp4", src: "img/log/nitinol-spring.jpg", alt: "Two-way nitinol spring lengthening along a ruler as it heats", caption: "A two-way nitinol spring heating against a ruler", w: 1200, h: 600 }, { src: "img/log/nitinol-springs.png", alt: "Length of nine two-way nitinol springs at room temperature and heated", caption: "All nine springs, room temperature and heated", w: 1600, h: 1240 } ]
             },
             {
               date: "Oct 2026", title: "Half-Scale Prototype", shape: "mini",
               text: "Eight petals on a fixed skeleton, all driven by one central nitinol spring through a sliding plate and eight links, so every petal moves together. Designed as a parametric CAD model and checked for collisions through the full range of motion before printing. PETG conducts heat poorly, so this one proves the motion, not the cooling.",
-              photos: [ { src: "img/log/half-scale-closed-open.jpg", alt: "Half-scale Nyx prototype in black PETG, closed and open", caption: "Half-scale prototype assembled in PETG, closed and open", w: 1616, h: 640 } ]
+              photos: [ { video: "img/log/half-scale-test.mp4", src: "img/log/half-scale-test.jpg", alt: "Half-scale prototype opening under heat, with a thermocouple readout", caption: "First test: nitinol thermal actuation. 4x speed", w: 1280, h: 720 }, { src: "img/log/half-scale-closed-open.jpg", alt: "Half-scale Nyx prototype in black PETG, closed and open", caption: "Half-scale prototype assembled in PETG, closed and open", w: 1616, h: 640 } ]
             },
             {
               date: "Oct 2026", title: "Full-Size Prototype, In Build", shape: "lotus",
@@ -149,7 +149,7 @@ window.CONTENT = {
       logs: [
         {
           title: "RF Lab",
-          intro: "Receivers I built to answer one question about a radio signal: where is it coming from?",
+          intro: "Receivers I built at home to locate radio signals, using software-defined radios and testing different antennas: Vivaldi, a 2.4 GHz patch, an omnidirectional whip, and a GPS antenna.",
           entries: [
             {
               date: "Feb 2025", title: "Learning the Basics", shape: "rf",
