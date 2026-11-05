@@ -125,16 +125,16 @@ window.CONTENT = {
               photos: [ { video: "img/log/half-scale-test.mp4", src: "img/log/half-scale-test.jpg", alt: "Half-scale prototype opening under heat, with a thermocouple readout", caption: "First test: nitinol thermal actuation. 4x speed", w: 1280, h: 720 }, { src: "img/log/half-scale-closed-open.jpg", alt: "Half-scale Nyx prototype in black PETG, closed and open", caption: "Half-scale prototype assembled in PETG, closed and open", w: 1616, h: 640 } ]
             },
             {
-              date: "Oct 2026", title: "Full-Size Prototype, In Build", shape: "lotus",
+              date: "Nov 2026", title: "Full-Size Prototype", shape: "lotus",
               text: [
-                "Eight petals, one nitinol spring each. Four inner petals form the walls of the closed bud. Four outer petals close over the seams and meet as the roof, with a foam gasket along each seam. Each petal is counterweighted to balance on its hinge, the way flight hardware is offloaded for ground tests, so the springs only have to overcome friction.",
-                "Open, every petal lies flat with its high-emissivity face up. Closed, the bud encloses a payload whose temperature I will log through thermal cycles that mimic a lunar day and night and other orbits. All eight petals are printed. The base and drive hardware are next."
+                "Eight petals, one nitinol spring each. Four inner petals form the walls of the closed bud. Four outer petals close over the seams and meet as the roof. Each petal is counterweighted to balance on its hinge, the way flight hardware is offloaded for ground tests, so the springs only have to overcome friction.",
+                "Assembled. The springs and counterweights get bonded and the seams sealed, then it goes through heat and cold cycles to confirm it opens hot and seals cold on its own."
               ],
-              photos: []
+              photos: [ { src: "img/log/full-size-closed-open.jpg", alt: "Full-size Nyx prototype on a cutting mat, closed and open", caption: "Full-size prototype assembled, closed and open", w: 2227, h: 720 } ]
             },
             {
-              date: "Next", title: "Next Steps: Carbon Fiber and Measured Data", shape: "lotus",
-              text: "Rebuild the petals in carbon fiber, which carries heat out to the petal tips far better than plastic, and measure how much the bud slows heat loss when closed and speeds it up when open.",
+              date: "Next", title: "Next Prototype: A Sealed Vault", shape: "lotus",
+              text: "This prototype proves the motion. Its bottom is open and the hinges and drive are exposed, so it protects nothing. The next one has to enclose and protect a heat-producing payload, built from flat carbon fiber panels, and I will measure how much heat it holds in through a simulated lunar night compared with how much it sheds open. Before I lock that design, I am rethinking the actuation: how the petals fold, and what drives them.",
               photos: []
             }
           ]
