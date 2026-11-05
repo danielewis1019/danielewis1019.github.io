@@ -133,8 +133,11 @@ window.CONTENT = {
               photos: [ { src: "img/log/full-size-closed-open.jpg", alt: "Full-size Nyx prototype on a cutting mat, closed and open", caption: "Full-size prototype assembled, closed and open", w: 2227, h: 720 } ]
             },
             {
-              date: "Next", title: "Next Prototype: A Sealed Vault", shape: "lotus",
-              text: "This prototype proves the motion. Its bottom is open and the hinges and drive are exposed, so it protects nothing. The next one has to enclose and protect a heat-producing payload, built from flat carbon fiber panels, and I will measure how much heat it holds in through a simulated lunar night compared with how much it sheds open. Before I lock that design, I am rethinking the actuation: how the petals fold, and what drives them.",
+              date: "Next", title: "Next Prototype: A Sealed Fold", shape: "lotus",
+              text: [
+                "This prototype proves the motion. Its bottom is open and the hinges and drive are exposed, so it protects nothing. The next one closes into a sealed fold of flat carbon fiber panels around a payload that makes heat. I will measure how much heat it holds in through a simulated lunar night and how much it sheds open.",
+                "The harder problem is the actuation. On the lunar surface one day and night is a single thermal cycle, about every 29.5 days, roughly 12 a year, from about 120 C down past -170 C. Nitinol springs lose a large share of their stroke over their first cycles, and standard nitinol is not made for that full range. So I am rethinking how the petals are driven, so they keep their full stroke through years of full-range cycling."
+              ],
               photos: []
             }
           ]
