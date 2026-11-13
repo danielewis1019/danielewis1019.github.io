@@ -99,7 +99,7 @@ window.CONTENT = {
             },
             {
               date: "Sep 2026", title: "CTE Mismatch", shape: "strip",
-              text: "Every material grows a little when heated. How much it grows per degree is its coefficient of thermal expansion, or CTE. Bond two metals with different CTEs and the strip bends as the temperature changes, the same way a dial thermometer turns its needle. That bend was my first candidate actuator. Drag the slider to heat or cool the strip.",
+              text: "Every material grows a little when heated. How much it grows per degree is its coefficient of thermal expansion, or CTE. Bond two metals with different CTEs and the strip bends as the temperature changes, the same way a dial thermometer turns its needle. That bend was my first candidate actuator. Drag the slider to heat the strip.",
               photos: [ { video: "img/log/cte-mismatch.mp4", src: "img/log/cte-mismatch.jpg", alt: "Bimetal strip bending as it heats and flattening as it cools", caption: "A bimetal strip bending as it heats, then flattening as it cools. 2.5x speed", w: 1200, h: 600 } ]
             },
             {

@@ -57,8 +57,8 @@ body.inlog .tfade,body.inlog .bfade{opacity:1}
   -webkit-backdrop-filter:blur(10px) saturate(140%);backdrop-filter:blur(10px) saturate(140%);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 6px 20px rgba(0,0,0,.35);
   transition:transform .55s cubic-bezier(.2,.8,.2,1),width .55s cubic-bezier(.2,.8,.2,1)}
 /* resume and contact: top right on every page, so nobody scrolls a whole log to find them */
-.quick{position:fixed;right:20px;top:calc(16px + env(safe-area-inset-top,0px));z-index:10;display:flex;gap:18px;padding:13px 18px 11px;border-radius:999px;font:12px/1 var(--mono);
-  background:rgba(12,12,16,.62);border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+.quick{position:fixed;right:28px;top:calc(16px + env(safe-area-inset-top,0px));z-index:10;display:flex;align-items:center;gap:20px;height:var(--navh,40px);font:12px/1 var(--mono);text-shadow:0 0 3px #000,0 0 10px #000}
+.quick a{padding:3px 0 2px}
 .quick a,.links a,.go a{color:var(--ash);text-decoration:none;padding-bottom:3px;border-bottom:1px solid rgba(255,255,255,.15);transition:color .3s,border-color .3s}
 .quick a:hover,.links a:hover,.go a:hover{color:var(--bone);border-color:rgb(var(--acc))}
 
@@ -207,6 +207,7 @@ h2,.ttl{font-stretch:112%;font-weight:400;font-size:var(--h2);line-height:.98;le
     mask-image:linear-gradient(90deg,rgba(0,0,0,var(--bgdim,1)) 0,rgba(0,0,0,var(--bgdim,1)) var(--tr),#000 calc(var(--tr) + 240px))}
 }
 @media (min-width:901px) and (max-width:1200px){ :root{--idxw:210px} }
+@media (min-width:1081px){ .links{display:none} }
 @media (max-width:1080px){ .quick{display:none} }
 @media (min-width:901px) and (max-height:860px){
   .lstick{padding-top:72px;padding-bottom:16px}
@@ -227,7 +228,7 @@ h2,.ttl{font-stretch:112%;font-weight:400;font-size:var(--h2);line-height:.98;le
   .name{font-size:clamp(46px,14vw,70px)}
   .role{margin-top:18px;font-size:11px}.role span{display:block;margin:0 0 2px}
   .under{margin-top:12px}
-  .go{display:none;margin-top:14px}.go.contact{display:flex}.go.contact a{color:var(--ash)}
+  .go.contact{display:flex;margin-top:14px}.go.contact a{color:var(--ash)}
   .lwrap{grid-template-columns:minmax(0,1fr);gap:0}
   .lcol{position:sticky;top:calc(58px + env(safe-area-inset-top,0px));z-index:2;margin:0 -20px;padding:0 20px 26px;
     background:linear-gradient(to bottom,rgba(5,5,7,.94) 0,rgba(5,5,7,.86) 62%,rgba(5,5,7,0) 100%)}
@@ -269,9 +270,9 @@ h2,.ttl{font-stretch:112%;font-weight:400;font-size:var(--h2);line-height:.98;le
 <div class="dock" id="dock">
   <div class="ro" id="ro"></div>
   <div class="therm">
-    <div class="thead"><label for="temp">Temperature, illustrative</label><span><b id="tv">75</b> &deg;C<i id="dn">day</i></span></div>
-    <div class="track"><i class="band" id="band"></i><input id="temp" type="range" min="-170" max="120" value="75"></div>
-    <div class="tfoot"><span>&minus;170 night</span><span id="bandl"></span><span>120 noon</span></div>
+    <div class="thead"><label for="temp">Bench temperature</label><span><b id="tv">75</b> &deg;C<i id="dn">hot</i></span></div>
+    <div class="track"><i class="band" id="band"></i><input id="temp" type="range" min="20" max="120" value="75"></div>
+    <div class="tfoot"><span>20 room</span><span id="bandl"></span><span>120 hot</span></div>
   </div>
 </div>
 <main id="main" tabindex="-1"></main>
@@ -331,7 +332,7 @@ h2,.ttl{font-stretch:112%;font-weight:400;font-size:var(--h2);line-height:.98;le
       `<h1 class="name">${esc(H.first)}<br>${esc(H.last)}</h1></div>`+
       `${H.role?'<div class="role"><span>Current role</span>'+esc(H.role)+'</div>':''}`+
       `<div class="bio">${paras(H.bio)}</div>${H.line?'<div class="under">'+esc(H.line)+'</div>':''}`+
-      `<nav class="go" aria-label="On this site"><span>Go to</span>${go}</nav><nav class="go contact" aria-label="Resume and contact">${contact}</nav>`+
+      `<nav class="go contact" aria-label="Resume and contact">${contact}</nav>`+
       `</div></div></section>`;
   }
   // projects: a typographic list, one row per world. hovering a row has the colony build that world's object
@@ -493,7 +494,7 @@ function shMoon(){ const s=mk(), C=[0,-1.62,0], RM=1.3, nM=Math.round(N*.74), nB
     for(let i=M0;i<F0;i++) s.pos[i*3+1]=base+mu[i]*mh;
     for(let i=F0;i<N;i++){ s.pos[i*3]=fs[i]*(.025+fu[i]*.3); s.pos[i*3+1]=mt-.04-fv[i]*fl; s.pos[i*3+2]=0; } }; // fixed width, only height grows
   s.dyn(0,1);
-  return Object.assign(s,{sway:.25,yaw0:0,tilt:.32,scale:.6,lc:C,cy:.06}); }
+  return Object.assign(s,{sway:.25,yaw0:0,tilt:.32,scale:.46,lc:C,cy:.06}); }
 // rail: paper-size boards (29.7 x 21 cm), 1 unit = 29.7 cm. ground is a disc in front of the boards,
 // dense and bright straight ahead, thinning to nothing at the sides and back. ripple always on.
 const RF={sep:1.0,sepT:1.0,zL:-.5};
@@ -796,23 +797,24 @@ function measure(){ secs.forEach(s=>{ const q=s.el.classList.contains('hero')?['
 function jumpTo(sub,smooth){ const el=document.querySelector('.world.on [data-slug="'+sub.replace(/[^a-z0-9-]/g,'')+'"]'); if(!el) return false;
   scrollTo({top:scrollY+el.getBoundingClientRect().top-(el.classList.contains('entry')?TRIG()-12:0),behavior:smooth&&!REDUCED?'smooth':'auto'}); return true; }
 
-// temperature dock. the slider spans roughly the lunar equatorial range, about -170 C at night to +120 C at noon. the
-// petal mapping is illustrative until nyx has measured transition temperatures. the same value drives the sun in the bg
+// temperature dock. the slider spans the bench range actually tested: room (about 21 C) up to 120 C, the top of the
+// bimetal runs (heat gun). petals follow the two-way nitinol springs: closed below 30 C (Mf), fully open by 60 C (Af).
+// the same value drives the sun in the bg
 const temp=document.getElementById('temp'), tv=document.getElementById('tv'), dn=document.getElementById('dn'), band=document.getElementById('band'), bandl=document.getElementById('bandl');
-// petals: closed below -25 C (slider midpoint), fully open by 60 C
-const setT=()=>{ if(!temp) return; const v=+temp.value; TEMPC=v; const q=Math.min(1,Math.max(0,(v+25)/85)); tv.textContent=v<0?'\u2212'+(-v):v; LOTUS.openT=q; LOTUS.sun=(v+170)/290; dn.textContent=v<-100?'lunar cold':v<20?'dawn':v<90?'day':'lunar noon'; }; // sun tracks the whole slider
+const TMIN=20, TMAX=120;
+const setT=()=>{ if(!temp) return; const v=+temp.value; TEMPC=v; const q=Math.min(1,Math.max(0,(v-30)/30)); tv.textContent=v; LOTUS.openT=q; LOTUS.sun=(v-TMIN)/(TMAX-TMIN); dn.textContent=v<30?'room':v<60?'warming':'hot'; }; // sun tracks the whole slider
 // the stretch of track where dragging moves the shape on screen, per shape: [from C, to C, label]. drawn as the bright band
-const BAND={lotus:[-25,60,'petals move \u221225 to 60'],mini:[-25,60,'petals move \u221225 to 60'],spring:[30,60,'coil moves 30 to 60'],strip:[21,21,'flat at 21']};
-function onShape(name){ const b=BAND[name]; if(!band||!b) return; const f=v=>((v+170)/290).toFixed(4); band.style.setProperty('--b0',f(b[0])); band.style.setProperty('--b1',f(b[1])); bandl.textContent=b[2]; }
+const BAND={lotus:[30,60,'petals move 30 to 60'],mini:[30,60,'petals move 30 to 60'],spring:[30,60,'coil moves 30 to 60'],strip:[21,120,'bends 21 to 120']};
+function onShape(name){ const b=BAND[name]; if(!band||!b) return; const f=v=>((v-TMIN)/(TMAX-TMIN)).toFixed(4); band.style.setProperty('--b0',f(b[0])); band.style.setProperty('--b1',f(b[1])); bandl.textContent=b[2]; }
 // one demonstration per shape, the first time the colony finishes building it: the dock sweeps the temperature by itself,
-// so the reader sees the thing move and sees which control moved it. lotus: lunar night to day, the bud opens as the sun
-// comes up. spring and strip: down through their band and back. any touch on the slider cancels it for good
+// so the reader sees the thing move and sees which control moved it. lotus: room temperature up past 60 C, the bud
+// opens as it heats. spring: down below 30 C and back. strip: flat at room temperature, then up to 120. any touch on the slider cancels it for good
 let userT=false, demoId=0; const demoRan={};
 function demo(path,ms){ const id=++demoId, t0=performance.now(), n=path.length-1;
   (function step(){ if(id!==demoId) return; const u=Math.min(1,(performance.now()-t0)/ms), f=u*n, k=Math.min(n-1,Math.floor(f)), q=f-k, e=q*q*(3-2*q);
     temp.value=Math.round(path[k]+(path[k+1]-path[k])*e); setT(); if(u<1) requestAnimationFrame(step); })(); }
 function built(name){ if(!temp||REDUCED||userT||!BAND[name]||!document.body.classList.contains('therm-on')) return; const g=name==='mini'?'lotus':name, v=+temp.value; if(demoRan[g]) return; demoRan[g]=1;
-  if(g==='lotus'){ if(v<20) demo([v,75],3600); } else if(g==='spring') demo(v<18?[v,75]:[v,18,75],3200); else if(g==='strip') demo(v<-100?[v,75]:[v,-170,75],v<-100?3000:4400); }
+  if(g==='lotus'){ if(v<30) demo([v,75],3600); } else if(g==='spring') demo(v<25?[v,75]:[v,22,75],3200); else if(g==='strip') demo(v<=22?[v,120,75]:[v,21,120,75],4400); }
 if(temp){ temp.addEventListener('input',()=>{ userT=true; demoId++; setT(); }); temp.addEventListener('pointerdown',()=>{ userT=true; demoId++; }); setT(); LOTUS.open=LOTUS.openT; }
 
 const pill=document.getElementById('pill'), dock=document.getElementById('dock'), mainEl=document.getElementById('main'); let oxLast=-1;
@@ -827,8 +829,8 @@ function route(want,opt){ opt=opt||{}; const ph=parseHash(want); world=ph.w; ACC
   document.body.classList.toggle('therm-on',th); document.body.dataset.scene=SCENE[world]; document.title=world===W0?NAME:NAVL[world]+' | '+NAME;
   secs=[...document.querySelectorAll('.world.on > section')].map(el=>({el,lis:[...el.querySelectorAll('.idx li')],act:-1,id:el.dataset.id||''}));
   projShape=null; projW=null; logInit(); measure(); galLayout();
-  // first arrival on a world with the temperature dock: start at lunar night, bud shut. built() runs the sunrise
-  if(th && temp && !userT && !REDUCED && !demoRan.lotus){ demoId++; temp.value=-170; setT(); LOTUS.open=LOTUS.openT; }
+  // first arrival on a world with the temperature dock: start at room temperature, bud shut. built() runs the warm-up
+  if(th && temp && !userT && !REDUCED && !demoRan.lotus){ demoId++; temp.value=21; setT(); LOTUS.open=LOTUS.openT; }
   if(opt.y!=null) scrollTo(0,opt.y); else if(!(ph.sub && jumpTo(ph.sub,false))) scrollTo(0,0);
   hashSub=ph.sub; hashAt=0; curHash=canon(world,ph.sub); landSub=ph.sub; landY=scrollY; placePill();
   if(opt.focus) mainEl.focus({preventScroll:true}); }
@@ -1072,7 +1074,7 @@ function frame(now){
   else if(curName==='moon') l1='mast <b>'+Math.round(MOON.d*100)+'</b> % deployed';
   else if(curName==='rf') l1='baseline <b>'+(RF.sep*29.7).toFixed(1)+'</b> cm';
   else if(curName==='lotus') l1='petals <b>'+Math.round(LOTUS.open*100)+'</b> % open';
-  else if(curName==='strip') l1='finger <b>'+(TEMPC<0?'\u2212'+(-TEMPC):TEMPC)+'</b> \u00b0C';
+  else if(curName==='strip') l1='finger <b>'+TEMPC+'</b> \u00b0C';
   else if(curName==='mini') l1='petals <b>'+Math.round(LOTUS.open*100)+'</b> % open';
   else if(curName==='spring') l1='spring <b>'+Math.round(SPR.L*100)+'</b> % extended';
   else l1='';
