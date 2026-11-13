@@ -1,9 +1,6 @@
-// site content. index.html renders everything from this object.
-// text: string or array of strings (one paragraph each). sub: italic line under a title.
-// shape: earth leo geo moon rf lotus mini strip spring dust. control: mast | sweep.
 
 window.CONTENT = {
-
+ 
   hero: {
     first: "Daniel",
     last: "Lewis",
@@ -16,9 +13,9 @@ window.CONTENT = {
     // the blue dot on the globe
     lat: 37.39, lon: -122.08, coordsLabel: "37.39N 122.08W", place: "Mountain View, CA"
   },
-
+ 
   worlds: [
-
+ 
     // ---------------------------------------------------------------- home
     {
       id: "home", nav: "Home", scene: "home", accent: "159,211,255",
@@ -61,7 +58,7 @@ window.CONTENT = {
         }
       ]
     },
-
+ 
     // ---------------------------------------------------------------- materials
     {
       id: "materials", nav: "Materials", scene: "materials", accent: "180,140,255",
@@ -128,9 +125,9 @@ window.CONTENT = {
               date: "Nov 2026", title: "Full-Size Prototype", shape: "lotus",
               text: [
                 "Eight petals, one nitinol spring each. Four inner petals form the walls of the closed bud. Four outer petals close over the seams and meet as the roof. Each petal is counterweighted to balance on its hinge, the way flight hardware is offloaded for ground tests, so the springs only have to overcome friction.",
-                "Assembled. The springs and counterweights get bonded and the seams sealed, then it goes through heat and cold cycles to confirm it opens hot and seals cold on its own."
+                "Assembled on a reprinted base plate, bolted down with fasteners. Next it goes through heat and cold cycles to confirm it opens hot and seals cold on its own."
               ],
-              photos: [ { src: "img/log/full-size-closed-open.jpg", alt: "Full-size Nyx prototype on a cutting mat, closed and open", caption: "Full-size prototype assembled, closed and open", w: 2227, h: 720 } ]
+              photos: [ { src: "img/log/full-size-closed-open.jpg", alt: "Full-size Nyx prototype on its reprinted base plate, closed and open", caption: "Full-size prototype on the reprinted base plate, closed and open", w: 1980, h: 720 }, { src: "img/log/full-size-inside.jpg", alt: "Full-size prototype with half its petals removed, showing the hinges and springs inside", caption: "Half the petals off to show the hinges and drive inside", w: 1600, h: 1200 } ]
             },
             {
               date: "Next", title: "Next Prototype: A Sealed Fold", shape: "lotus",
@@ -144,7 +141,7 @@ window.CONTENT = {
         }
       ]
     },
-
+ 
     // ---------------------------------------------------------------- RF
     {
       id: "rf", nav: "RF", scene: "rf", accent: "255,210,63",
@@ -188,7 +185,7 @@ window.CONTENT = {
         }
       ]
     },
-
+ 
     // ---------------------------------------------------------------- photography (its own page)
     {
       id: "photos", nav: "Photography", scene: "photo", accent: "214,220,232",
@@ -198,11 +195,11 @@ window.CONTENT = {
         // add photos as { src: "img/photos/name.jpg", alt: "what it shows", caption: "optional line under the photo" }
         // order here is the order on the page
         photos: [
-          { src: "img/photos/storm-clouds.jpg", alt: "Storm clouds over the coast at dusk", w: 1800, h: 1200 },
+          { src: "img/photos/storm-clouds.jpg", alt: "Agapanthus", w: 1800, h: 1200 },                          // file holds the agapanthus shot
           { src: "img/photos/peacock.jpg", alt: "Peacock", w: 1800, h: 1200 },
           { src: "img/photos/daisy.jpg", alt: "White and violet daisy", w: 1800, h: 1200 },
           { src: "img/photos/ball-python.jpg", alt: "Ball python", w: 1800, h: 1200 },
-          { src: "img/photos/agapanthus.jpg", alt: "Agapanthus", w: 1800, h: 1200 },
+          { src: "img/photos/agapanthus.jpg", alt: "Storm clouds over the coast at dusk", w: 1800, h: 1200 },   // file holds the storm shot
           { src: "img/photos/croton.jpg", alt: "Croton leaves", w: 1800, h: 1200 },
           { src: "img/photos/begonia.jpg", alt: "Begonia", w: 1800, h: 1200 },
           { src: "img/photos/grass-sunset.jpg", alt: "Grass against the sunset", w: 1800, h: 1200 },
@@ -213,7 +210,7 @@ window.CONTENT = {
       }
     }
   ],
-
+ 
   // ---------------------------------------------------------------- links (bottom of every page)
   // leave href empty ("") to hide a link. Email looks like "mailto:you@example.com"
   links: [
@@ -223,3 +220,4 @@ window.CONTENT = {
     { label: "Email", href: "mailto:danielewis2002@gmail.com" }
   ]
 };
+ 
